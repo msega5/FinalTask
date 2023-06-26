@@ -54,6 +54,8 @@ string[] CountSymbols(string[] array, int cropNum)
 }
 
 
+
+
 Console.Clear();
 System.Console.Write("Введите размер массива (сколько планируете вводить слов): ");
 int arraySize = Convert.ToInt32(System.Console.ReadLine());
