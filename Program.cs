@@ -32,13 +32,32 @@ void ArrayPrint(string[] args, int arraySize)
         if (index != arraySize - 1)
         {
             System.Console.Write($"“{word}”, ");
-            //System.Console.Write($"{word}: {word.Length}");
             index++;
         }
         else System.Console.Write($"“{word}”");
     }
     System.Console.WriteLine("]");
 }
+
+void ArrayCountSymbols(string[] args)
+{
+    System.Console.Write("Повторите ввод: ");
+    string? input = System.Console.ReadLine();
+    System.Console.Write("Конечный массив: ");
+    foreach (string? word in input.Split(new char[] { ' ' }))
+    {
+        if (word.Length < 4)
+        {
+            System.Console.Write($"{word}, ");
+        }
+    }
+}
+// string arrayInit(string[] args)
+// {
+//     string? input = System.Console.ReadLine();
+//     string[] arrayText = input.Split(' ');
+//     return arrayText[];
+// }
 // void PrintArray(string[] array)
 // {
 //     for (int i = 0; i < array.Length; i++)
@@ -58,5 +77,6 @@ Console.Clear();
 System.Console.WriteLine("Введите значения (буквы, числа, слова) через пробел и нажмите Enter");
 int arraySize = ArraySize(args);
 ArrayPrint(args, arraySize);
+ArrayCountSymbols(args);
 //string[] array = new string[arraySize - 1];
 //PrintArray(array);
