@@ -13,21 +13,32 @@
 
 
 
-int ArrayInit(string[] args)
+int ArraySize(string[] args) //определяем размер массива
 {
     int index = 0;
-    string input = System.Console.ReadLine();
-    System.Console.Write("Получился такой массив: [");
-    foreach (string word in input.Split(new char[] {' '}))
-    {
-        System.Console.Write($"“{word}”, ");
-        //System.Console.Write($"{word}: {word.Length}");
-        index++;
-    }
-    System.Console.WriteLine("]");
+    string? input = System.Console.ReadLine();
+    foreach (string? word in input.Split(new char[] { ' ' })) index++;
     return index;
 }
 
+void ArrayPrint(string[] args, int arraySize)
+{
+    int index = 0;
+    System.Console.Write("Повторите ввод: ");
+    string? input = System.Console.ReadLine();
+    System.Console.Write("Получился такой массив: [");
+    foreach (string? word in input.Split(new char[] { ' ' }))
+    {
+        if (index != arraySize - 1)
+        {
+            System.Console.Write($"“{word}”, ");
+            //System.Console.Write($"{word}: {word.Length}");
+            index++;
+        }
+        else System.Console.Write($"“{word}”");
+    }
+    System.Console.WriteLine("]");
+}
 // void PrintArray(string[] array)
 // {
 //     for (int i = 0; i < array.Length; i++)
@@ -40,12 +51,12 @@ int ArrayInit(string[] args)
 //     System.Console.WriteLine();
 // }
 
+
+
+
 Console.Clear();
 System.Console.WriteLine("Введите значения (буквы, числа, слова) через пробел и нажмите Enter");
-//ArrayInit(args); //считает слова и выдаёт количество слов для создания массива
-//System.Console.WriteLine(ArrayInit(args)); //котрольная строка для проверки метода (можно удалить)
-int arraySize = ArrayInit(args);
-System.Console.WriteLine(arraySize);
+int arraySize = ArraySize(args);
+ArrayPrint(args, arraySize);
 //string[] array = new string[arraySize - 1];
-
 //PrintArray(array);
