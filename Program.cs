@@ -10,73 +10,54 @@
 // [“1234”, “1567”, “-2”, “computer science”] → [“-2”]
 // [“Russia”, “Denmark”, “Kazan”] → []
 
+//выводит лишнюю запятую при втором примере
 
-
-
-int ArraySize(string[] args) //определяем размер массива
+string[] ArrayInit(string[] args)
 {
-    int index = 0;
-    string? input = System.Console.ReadLine();
-    foreach (string? word in input.Split(new char[] { ' ' })) index++;
-    return index;
+    string input = System.Console.ReadLine();
+    string[] array = input.Split(new char[] { ' ' });
+    return array;
 }
 
-void ArrayPrint(string[] args, int arraySize)
+void ArrayCountLetters(string[] array)
 {
-    int index = 0;
-    System.Console.Write("Повторите ввод: ");
-    string? input = System.Console.ReadLine();
-    System.Console.Write("Получился такой массив: [");
-    foreach (string? word in input.Split(new char[] { ' ' }))
+    System.Console.Write("Конечный массив: [");
+    for (int i = 0; i < array.Length; i++)
     {
-        if (index != arraySize - 1)
+        if (array[i].Length < 4)
         {
-            System.Console.Write($"“{word}”, ");
-            index++;
+            if (i != array.Length - 1)
+            {
+                System.Console.Write($"“{array[i]}”");
+            }
+            else
+            {
+                System.Console.Write($"“{array[i]}”");
+            }
         }
-        else System.Console.Write($"“{word}”");
+        else continue;
     }
-    System.Console.WriteLine("]");
+    System.Console.Write("]");
 }
 
-void ArrayCountSymbols(string[] args)
+void PrintArray(string[] array)
 {
-    System.Console.Write("Повторите ввод: ");
-    string? input = System.Console.ReadLine();
-    System.Console.Write("Конечный массив: ");
-    foreach (string? word in input.Split(new char[] { ' ' }))
+    for (int i = 0; i < array.Length; i++)
     {
-        if (word.Length < 4)
+        if (i != array.Length - 1)
         {
-            System.Console.Write($"{word}, ");
+            System.Console.Write($"“{array[i]}”, ");
         }
+        else System.Console.WriteLine($"“{array[i]}”]");
     }
 }
-// string arrayInit(string[] args)
-// {
-//     string? input = System.Console.ReadLine();
-//     string[] arrayText = input.Split(' ');
-//     return arrayText[];
-// }
-// void PrintArray(string[] array)
-// {
-//     for (int i = 0; i < array.Length; i++)
-//     {
-//       //  if (i != array.Length)
-//         //    System.Console.Write($"{array[i]}, ");
-//        // else
-//        System.Console.WriteLine(array[i]);
-//     }
-//     System.Console.WriteLine();
-// }
 
 
 
 
 Console.Clear();
-System.Console.WriteLine("Введите значения (буквы, числа, слова) через пробел и нажмите Enter");
-int arraySize = ArraySize(args);
-ArrayPrint(args, arraySize);
-ArrayCountSymbols(args);
-//string[] array = new string[arraySize - 1];
-//PrintArray(array);
+System.Console.Write("Введите значения (буквы, числа, слова) через пробел и нажмите Enter: ");
+string[] array = ArrayInit(args);
+System.Console.Write("Исходный массив: [");
+PrintArray(array);
+ArrayCountLetters(array);
