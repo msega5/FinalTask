@@ -13,20 +13,39 @@
 
 
 
-void ArrayInit(string [] args)
+int ArrayInit(string[] args)
 {
     int index = 0;
     string input = System.Console.ReadLine();
-    foreach (string word in input.Split(new char[] { ' ' }))
+    System.Console.Write("Получился такой массив: [");
+    foreach (string word in input.Split(new char[] {' '}))
     {
-       // System.Console.WriteLine("{0}: {1}", word, word.Length);
-        System.Console.WriteLine($"{word}: {word.Length}");
+        System.Console.Write($"“{word}”, ");
+        //System.Console.Write($"{word}: {word.Length}");
         index++;
     }
-    System.Console.WriteLine(index);
+    System.Console.WriteLine("]");
+    return index;
 }
 
+// void PrintArray(string[] array)
+// {
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//       //  if (i != array.Length)
+//         //    System.Console.Write($"{array[i]}, ");
+//        // else
+//        System.Console.WriteLine(array[i]);
+//     }
+//     System.Console.WriteLine();
+// }
 
+Console.Clear();
 System.Console.WriteLine("Введите значения (буквы, числа, слова) через пробел и нажмите Enter");
-ArrayInit(args);
-//string[] array = new string[index - 1];
+//ArrayInit(args); //считает слова и выдаёт количество слов для создания массива
+//System.Console.WriteLine(ArrayInit(args)); //котрольная строка для проверки метода (можно удалить)
+int arraySize = ArrayInit(args);
+System.Console.WriteLine(arraySize);
+//string[] array = new string[arraySize - 1];
+
+//PrintArray(array);
