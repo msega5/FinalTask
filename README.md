@@ -52,5 +52,11 @@
 3. Добавить выбор Random массива вместо ручного ввода.
 
 ## Команда проекта
+Над проектом работал Ефанов Сергей https://github.com/msega5 студент GeekBrains.
 
 ## Источники
+В процессе работы пришлось много гуглить:
+1. https://metanit.com/sharp/tutorial/2.34.php
+2. https://learn.microsoft.com/ru-ru/dotnet/api/system.string.split
+3. https://ru.stackoverflow.com/questions/418758/
+4. http://fb3809fm.bget.ru/_csharp/221.php
