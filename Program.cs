@@ -10,34 +10,13 @@
 // [“1234”, “1567”, “-2”, “computer science”] → [“-2”]
 // [“Russia”, “Denmark”, “Kazan”] → []
 
-//выводит лишнюю запятую при втором примере
 
-string[] ArrayInit(string[] args)
+void ArrayInit(int arraySize, string[] array)
 {
-    string input = System.Console.ReadLine();
-    string[] array = input.Split(new char[] { ' ' });
-    return array;
-}
-
-void ArrayCountLetters(string[] array)
-{
-    System.Console.Write("Конечный массив: [");
-    for (int i = 0; i < array.Length; i++)
+    for (int i = 0; i < arraySize; i++)
     {
-        if (array[i].Length < 4)
-        {
-            if (i != array.Length - 1)
-            {
-                System.Console.Write($"“{array[i]}”");
-            }
-            else
-            {
-                System.Console.Write($"“{array[i]}”");
-            }
-        }
-        else continue;
+        array[i] = System.Console.ReadLine();
     }
-    System.Console.Write("]");
 }
 
 void PrintArray(string[] array)
@@ -52,12 +31,39 @@ void PrintArray(string[] array)
     }
 }
 
-
+string[] CountSymbols(string[] array, int cropNum)
+{
+    System.Console.Write("Конечный массив: [");
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length <= cropNum)
+        {
+            if (i != array.Length - 1)
+            {
+                System.Console.Write($"“{array[i]}”");
+            }
+            else
+            {
+                System.Console.Write($", “{array[i]}”");
+            }
+        }
+        else continue;
+    }
+    System.Console.Write("]");
+    return array;
+}
 
 
 Console.Clear();
-System.Console.Write("Введите значения (буквы, числа, слова) через пробел и нажмите Enter: ");
-string[] array = ArrayInit(args);
+System.Console.Write("Введите размер массива (сколько планируете вводить слов): ");
+int arraySize = Convert.ToInt32(System.Console.ReadLine());
+
+System.Console.WriteLine("Введите значения (буквы, числа, слова) через Enter: ");
+string[] array = new string[arraySize];
+ArrayInit(arraySize, array);
 System.Console.Write("Исходный массив: [");
 PrintArray(array);
-ArrayCountLetters(array);
+
+System.Console.Write("Введите число символов по которому сравнивается длина слова: ");
+int cropNum = Convert.ToInt32(System.Console.ReadLine());
+CountSymbols(array, cropNum);
